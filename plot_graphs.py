@@ -234,7 +234,6 @@ update_paper_figs()
 # ax.set_ylabel( 'Packets' )
 # fig.show()
 # print(Counter(pkt_data['org']))
-fig_to_file(fig,'testing','pdf')
 
 
 # In[ ]:
