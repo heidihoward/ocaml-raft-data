@@ -58,6 +58,11 @@ ax.hist(hist_data, max-min,
         range=[min,max], normed=True,histtype='bar',linewidth=0.5)
 ax.set_xlabel('No. of packets to elect leader')
 ax.set_ylabel('Probability')
+
+eights = [8,16,24,32,40,48,56,64]
+ax.set_xticks(eights)
+
+
 fig.show()
 fig_to_file(fig,'pkt_histogram','pdf')
 
@@ -93,7 +98,7 @@ plot_graph_b(diago_time,diago_percent['150-300'],'diago')
 
 
 
-update_paper_figs('~/dissertation/sig-ops/graphs')
+#update_paper_figs('~/dissertation/sig-ops/graphs')
 
 
 
