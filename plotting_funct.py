@@ -10,8 +10,8 @@ figs = ['org','expo','combo','fixed']
 graph_a = ['12-24','25-50','50-100','100-200','150-300']
 graph_b = ['150-151','150-155','150-175','150-200','150-300']
 
-graph_a_labels = ['12-24 ms','25-50 ms','50-100 ms','100-200 ms','150-300 ms']
-graph_b_labels = ['150-151 ms','150-155 ms','150-175 ms','150-200 ms','150-300 ms']
+graph_a_labels = ['12--24 ms','25--50 ms','50--100 ms','100--200 ms','150--300 ms']
+graph_b_labels = ['150--151 ms','150--155 ms','150--175 ms','150--200 ms','150--300 ms']
 
 lines = ["-","--","-.",":"]
 
@@ -27,15 +27,20 @@ def plot_graph_a (data_x,data_y,name):
     for line in graph_a:
         if (len(data_x[line]) != len(data_y)):
             print (line)
-        axes.plot(data_x[line],data_y,next(linecycler))
+        axes.plot(data_x[line],data_y,next(linecycler), lw=1.0)
 
     # labels
-    axes.set_xlabel('Time to elect leader (ms)',fontsize=9)
+    axes.set_xlabel('Time to elect leader [ms]',fontsize=9)
     axes.set_ylabel('Cumulative percent',fontsize=9)
-    axes.set_title('Time taken to elect leader',fontsize=9)
+    if "diago" in name:
+      axes.set_title('\\textbf{Original}~(Ongaro and Ousterhout)',fontsize=9)
+    else:
+      axes.set_title('\\textbf{Reproduction}',fontsize=9)
 
     # ticks & axes
-
+    x_marked = range(0, 401, 50)
+    axes.set_xticks(x_marked)
+    axes.set_xticklabels([str(x) for x in x_marked])
     y_marked = [0,20,40,60,80,100]
     axes.set_yticks(y_marked)
     axes.set_yticklabels(['0%','20%','40%','60%','80%','100%'])
@@ -59,19 +64,22 @@ def plot_graph_b(data_x,data_y,name,x_max=10000,log=True,letter=''):
         if (len(data_x[line]) != len(data_y)):
             print (line)
             print (len(y_axis))
-        axes.plot(data_x[line],data_y,next(linecycler))
+        axes.plot(data_x[line],data_y,next(linecycler), lw=1.0)
 
     # labels
     xlabel = 'Time to elect leader'
     if log:
-        xlabel += ' (ms, $\log_{10}$ scale)'
+        xlabel += ' [ms, $\log_{10}$ scale]'
     else:
-        xlabel += ' (ms)'
+        xlabel += ' [ms]'
 
 
     axes.set_xlabel(xlabel,fontsize=9)
     axes.set_ylabel('Cumulative percent',fontsize=9)
-    axes.set_title(letter+'Time taken to elect leader',fontsize=9)
+    if "diago" in name:
+      axes.set_title('\\textbf{Original}~(Ongaro and Ousterhout)',fontsize=9)
+    else:
+      axes.set_title('\\textbf{Reproduction}',fontsize=9)
 
     # ticks & axes
     if (log):
@@ -79,7 +87,12 @@ def plot_graph_b(data_x,data_y,name,x_max=10000,log=True,letter=''):
         x_marked = [75, 150, 300, 1000, 3000, 10000]
         axes.set_xticks(x_marked)
         axes.set_xticklabels(x_marked)
-    axes.set_xlim([75,x_max])
+        axes.set_xlim([75,x_max])
+    else:
+        x_marked = range(0, 401, 50)
+        axes.set_xticks(x_marked)
+        axes.set_xticklabels([str(x) for x in x_marked])
+        axes.set_xlim([0,x_max])
 
     y_marked = [0,20,40,60,80,100]
     axes.set_yticks(y_marked)
