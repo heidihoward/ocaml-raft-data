@@ -53,7 +53,7 @@ def plot_graph_a (data_x,data_y,name):
 
 # In[ ]:
 
-def plot_graph_b(data_x,data_y,name,x_max=10000,log=True,letter=''):
+def plot_graph_b(data_x,data_y,name,x_min=0,x_max=10000,log=True,letter=''):
     fig = plt.figure()
 
     axes = fig.add_axes([0.1, 0.1, 0.8, 0.8]) # left, bottom, width, height (range 0 to 1)
@@ -92,7 +92,7 @@ def plot_graph_b(data_x,data_y,name,x_max=10000,log=True,letter=''):
         x_marked = range(0, 401, 50)
         axes.set_xticks(x_marked)
         axes.set_xticklabels([str(x) for x in x_marked])
-        axes.set_xlim([0,x_max])
+        axes.set_xlim([x_min,x_max])
 
     y_marked = [0,20,40,60,80,100]
     axes.set_yticks(y_marked)

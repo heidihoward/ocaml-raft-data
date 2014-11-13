@@ -74,9 +74,9 @@ fig_to_file(fig,'pkt_histogram','pdf')
 plot_graph_a(data_dict['org'],y_axis,'org')
 plot_graph_b(data_dict['org'],y_axis,'org')
 
-plot_graph_b(data_dict['fixed'],y_axis,'fixed',400,False,'(a) ')
-plot_graph_b(data_dict['expo'],y_axis,'expo',letter='(b) ')
-plot_graph_b(data_dict['combo'],y_axis,'combo',400,False,'(c) ')
+plot_graph_b(data_dict['fixed'],y_axis,'fixed',75,400,False,'(a) ')
+plot_graph_b(data_dict['expo'],y_axis,'expo',75,400,False,'(b) ')
+plot_graph_b(data_dict['combo'],y_axis,'combo',75,400,False,'(c) ')
 
 
 
@@ -102,7 +102,7 @@ plot_graph_b(diago_time,diago_percent['150-300'],'diago')
 
 
 
-#update_paper_figs('~/dissertation/sig-ops/graphs')
+update_paper_figs('~/dissertation/sig-ops/graphs')
 
 
 
