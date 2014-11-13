@@ -33,6 +33,10 @@ size = len(data_dict['org'][graph_a[0]])
 for y in range (1,size+1):
     y_axis.append(y*100.0/size)
 
+# get figure to quote in the text
+# print (size)
+# print (data_dict['org']['150-155'].pop(int(size*0.95)))
+# print (data_dict['fixed']['150-155'].pop(int(size*0.95)))
 
 # collect pkt data
 pkt_data = {} 
@@ -47,11 +51,11 @@ for line in graph_a + graph_b:
         file_reader = csv.reader(file,delimiter=',')
         for point in file_reader:
             pkt_data[line][figure].append(int(point[1]))
-        print (line + figure + str(np.mean(pkt_data[line][figure])))
+        # print (line + figure + str(np.mean(pkt_data[line][figure])))
 
 # plot hist
 hist_data = pkt_data['150-200']['org']
-print (hist_data)
+# print (hist_data)
 min = np.amin(hist_data)
 max = np.amax(hist_data)
 ax.hist(hist_data, max-min,
