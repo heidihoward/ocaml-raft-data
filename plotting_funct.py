@@ -78,7 +78,7 @@ def plot_graph_b(data_x,data_y,name,x_min=0,x_max=10000,log=True,letter=''):
     axes.set_ylabel('Cumulative percent',fontsize=9)
     if "diago" in name:
       axes.set_title('\\textbf{Original}~(Ongaro and Ousterhout)',fontsize=9)
-    else:
+    elif not("org" in name):
       axes.set_title('\\textbf{Reproduction}',fontsize=9)
 
     # ticks & axes
