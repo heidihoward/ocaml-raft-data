@@ -60,11 +60,14 @@ min = np.amin(hist_data)
 max = np.amax(hist_data)
 ax.hist(hist_data, max-min,
         range=[min,max], normed=True,histtype='bar',linewidth=0.5)
-ax.set_xlabel('No. of packets to elect leader')
+ax.set_xlabel('Number of packets to elect leader')
 ax.set_ylabel('Probability')
 
 eights = [8,16,24,32,40,48,56,64]
 ax.set_xticks(eights)
+ax.set_xticklabels([str(x) for x in eights])
+ax.set_yticks(np.arange(0.0, 0.36, 0.05))
+ax.set_yticklabels([str(x)+"\%%" for x in range(0, 36, 5)])
 
 
 fig.show()

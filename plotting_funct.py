@@ -34,7 +34,7 @@ def plot_graph_a (data_x,data_y,name):
     axes.set_ylabel('Cumulative percent',fontsize=9)
     if "diago" in name:
       axes.set_title('\\textbf{Original}~(Ongaro and Ousterhout)',fontsize=9)
-    else:
+    elif not("combo" in name) and not ("expo" in name) and not ("fixed" in name):
       axes.set_title('\\textbf{Reproduction}',fontsize=9)
 
     # ticks & axes
@@ -46,7 +46,7 @@ def plot_graph_a (data_x,data_y,name):
     axes.set_yticklabels(['0%','20%','40%','60%','80%','100%'])
     axes.set_xlim([0,400])
 
-    axes.legend(graph_a_labels,loc=4,frameon=False)
+    axes.legend(graph_a_labels,loc=4,frameon=False,handlelength=2.5)
     fig.show()
     fig_to_file(fig,'graph_a_'+name,'pdf')
 
@@ -78,7 +78,7 @@ def plot_graph_b(data_x,data_y,name,x_min=0,x_max=10000,log=True,letter=''):
     axes.set_ylabel('Cumulative percent',fontsize=9)
     if "diago" in name:
       axes.set_title('\\textbf{Original}~(Ongaro and Ousterhout)',fontsize=9)
-    elif not("org" in name):
+    elif not("combo" in name) and not ("expo" in name) and not ("fixed" in name):
       axes.set_title('\\textbf{Reproduction}',fontsize=9)
 
     # ticks & axes
@@ -98,6 +98,6 @@ def plot_graph_b(data_x,data_y,name,x_min=0,x_max=10000,log=True,letter=''):
     axes.set_yticks(y_marked)
     axes.set_yticklabels(['0%','20%','40%','60%','80%','100%'])
 
-    axes.legend(graph_b_labels,loc=4,frameon=False)
+    axes.legend(graph_a_labels,loc=4,frameon=False,handlelength=2.5)
     fig.show()
     fig_to_file(fig,'graph_b_'+name,'pdf')
